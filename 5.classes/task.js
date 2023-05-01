@@ -29,9 +29,6 @@ class PrintEditionItem {
   class Magazine extends PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
       super(name, releaseDate, pagesCount);
-      this.name = name,
-      this.releaseDate = releaseDate,
-      this.pagesCount = pagesCount,
       this.state = 100,
       this.type = "magazine";
     }
@@ -41,9 +38,6 @@ class PrintEditionItem {
     constructor(author, name, releaseDate, pagesCount) {
       super(name, releaseDate, pagesCount);
       this.author = author;
-      this.name = name,
-      this.releaseDate = releaseDate,
-      this.pagesCount = pagesCount,
       this.state = 100,
       this.type = "book";
     }
@@ -52,10 +46,6 @@ class PrintEditionItem {
   class NovelBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
       super(author, name, releaseDate, pagesCount);
-      this.author = author;
-      this.name = name,
-      this.releaseDate = releaseDate,
-      this.pagesCount = pagesCount,
       this.state = 100,
       this.type = "novel";
     }
@@ -64,10 +54,6 @@ class PrintEditionItem {
   class FantasticBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
       super(author, name, releaseDate, pagesCount);
-      this.author = author;
-      this.name = name,
-      this.releaseDate = releaseDate,
-      this.pagesCount = pagesCount,
       this.state = 100,
       this.type = "fantastic";
     }
@@ -76,10 +62,6 @@ class PrintEditionItem {
   class DetectiveBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
       super(author, name, releaseDate, pagesCount);
-      this.author = author;
-      this.name = name,
-      this.releaseDate = releaseDate,
-      this.pagesCount = pagesCount,
       this.state = 100,
       this.type = "detective";
     }
@@ -108,12 +90,10 @@ class PrintEditionItem {
     }
   
     giveBookByName(bookName) {
-      for (let i = 0; i < this.books.length; i++) {
-        for (let key in this.books[i]) {
-          if (this.books[i][key] === bookName) {
-            return this.books.splice(i,1);
-          }
-        }
-      } return null;
-    }
+        if (this.books.find(item => item.name === bookName)) {
+            let book = this.books.find(item => item.name === bookName);
+            this.books = this.books.filter(item => item.name !== bookName);
+            return book;
+        } return null;
+      } 
   }
