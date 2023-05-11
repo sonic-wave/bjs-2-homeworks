@@ -11,7 +11,7 @@
       return parseCount(value);
     }
     catch (error) {
-      return error;
+        return error;
     }
   }
 
@@ -27,7 +27,7 @@
     }
   
     get perimeter() {
-      return this.firstSide + this.secondSide + this.thirdSide;
+        return this.firstSide + this.secondSide + this.thirdSide;
     }
   
     get area() {
@@ -35,18 +35,18 @@
       return Number.parseFloat(Math.sqrt(p * (p - this.firstSide) * (p - this.secondSide) * (p - this.thirdSide)).toFixed(3));
     }
   }
-
+  
   function getTriangle(firstSide, secondSide, thirdSide) {
     try {
-      return new Triangle(firstSide, secondSide, thirdSide);
+        return new Triangle(firstSide, secondSide, thirdSide);
     } catch {
-      return object = {
-        get perimeter() {
-        return "Ошибка! Треугольник не существует";
-        },
-        get area() {
-          return "Ошибка! Треугольник не существует";
+        return object = {
+            get perimeter() {
+                return "Ошибка! Треугольник не существует";
+            },
+            get area() {
+                return "Ошибка! Треугольник не существует";
+            }
         }
-      }
     }
 }
